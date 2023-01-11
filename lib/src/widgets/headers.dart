@@ -170,3 +170,47 @@ class _HeaderPeakPainter extends CustomPainter{
   }
 
 }
+
+class HeaderCurve extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      //color: Color(0xff615AAB),
+      child: CustomPaint(
+        painter: _HeaderCurvePainter(),
+      )
+    );
+  }
+}
+
+class _HeaderCurvePainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) { 
+
+    final pencil = new Paint();
+
+    //Propiedades lapiz
+    pencil.color = Color(0xff615AAB);
+    pencil.style = PaintingStyle.fill; //fill para rellenar - stroke para dibujar
+    pencil.strokeWidth = 15;
+
+    final path = new Path();
+
+    //dibujar con el path y el lapiz 
+    path.lineTo(0, size.height * 0.25);  
+    path.quadraticBezierTo(size.width * 0.5, size.height * 0.40, size.width, size.height * 0.25);
+    path.lineTo(size.width, 0);  
+
+    canvas.drawPath(path, pencil);
+
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+   return true;
+  }
+
+}
