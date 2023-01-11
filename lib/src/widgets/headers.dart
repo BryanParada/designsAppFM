@@ -225,7 +225,7 @@ class HeaderWave extends StatelessWidget {
       width: double.infinity,
       //color: Color(0xff615AAB),
       child: CustomPaint(
-        painter: _HeaderWavePainter(),
+        painter: _HeaderGradientPainter(),
       )
     );
   }
@@ -239,6 +239,71 @@ class _HeaderWavePainter extends CustomPainter{
 
     //Propiedades lapiz
     pencil.color = Color(0xff615AAB);
+    pencil.style = PaintingStyle.fill; //fill para rellenar - stroke para dibujar
+    pencil.strokeWidth = 15;
+
+    final path = new Path();
+
+    //dibujar con el path y el lapiz 
+    path.lineTo(0, size.height * 0.25);  
+    path.quadraticBezierTo(size.width * 0.25, size.height * 0.30, size.width * 0.5, size.height * 0.25);
+    path.quadraticBezierTo(size.width * 0.75, size.height * 0.20, size.width, size.height * 0.25);
+    path.lineTo(size.width, 0);  
+
+    canvas.drawPath(path, pencil);
+
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+   return true;
+  }
+
+}
+
+class HeaderGradient extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      //color: Color(0xff615AAB),
+      child: CustomPaint(
+        painter: _HeaderGradientPainter(),
+      )
+    );
+  }
+}
+
+class _HeaderGradientPainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) { 
+
+    final Rect rect = Rect.fromCircle(
+      center: Offset(0.0, 55.0),
+      radius: 180);
+
+    final Gradient gradient = new LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: <Color>[
+        Color(0xff6D05E8),
+        Color(0XffC012FF),
+        Color(0Xff6D05FA),
+      ],
+      stops: [ //n colors = n stops
+        0.0,
+        0.5,
+        1.0,
+      ]
+      );
+
+
+    final pencil = new Paint()..shader = gradient.createShader(rect);
+
+    //Propiedades lapiz
+    //Wpencil.color = Color(0xff615AAB);
     pencil.style = PaintingStyle.fill; //fill para rellenar - stroke para dibujar
     pencil.strokeWidth = 15;
 
