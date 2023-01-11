@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class AnimationsPage extends StatelessWidget {
@@ -46,7 +48,23 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return _Rectangle();
+
+    //play / reproduccion
+    controller.forward();
+
+    return AnimatedBuilder(
+      animation: controller,
+      //child: _Rectangle(),
+      builder: (BuildContext context, Widget? child) {
+
+        // print(rotation.value);
+        
+        return Transform.rotate(
+          angle: rotation.value, 
+          child: _Rectangle());
+      },
+    );
+
   }
 } 
 
