@@ -23,35 +23,41 @@ class SquareAnimated extends StatefulWidget {
 
 class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProviderStateMixin{
 
-  late AnimationController controller; 
-  late Animation<double> rotation;
+  late AnimationController myController; 
+  late Animation<double> myRotation;
+  late Animation<double> myOpacity;
 
   @override
   void initState() { 
 
-    controller = new AnimationController(
+    myController = new AnimationController(
       vsync: this, 
       duration: Duration(milliseconds: 4000)
       );
 
-      rotation = Tween(begin: 0.0, end: 2 * Math.pi).animate(controller);
+      myRotation = Tween(begin: 0.0, end: 2 * Math.pi).animate(
+        CurvedAnimation(parent: myController, curve: Curves.easeOut)
+      );
 
-      controller.addListener(() {
+      myOpacity = Tween( begin: 0.1, end: 1.0).animate(myController);
 
-        print('Status ${controller.status}' );
-        if (controller.status == AnimationStatus.completed){
-          controller.reverse();
+      myController.addListener(() {
+
+        print('Status ${myController.status}' );
+        if (myController.status == AnimationStatus.completed){
+          //controller.reverse();
+          myController.reset();
         } 
 
        });
 
-    controller.forward();
+    myController.forward();
     super.initState();
   }
 
   @override
   void dispose() {  
-    controller.dispose();
+    myController.dispose();
     super.dispose();
   }
 
@@ -60,18 +66,22 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
   Widget build(BuildContext context) {
 
     //play / reproduccion
-    controller.forward();
+    myController.forward();
 
     return AnimatedBuilder(
-      animation: controller,
-      //child: _Rectangle(),
-      builder: (BuildContext context, Widget? child) {
+      animation: myController,
+      child: _Rectangle(),
+      builder: (BuildContext context, Widget? childRectangle) {
 
         // print(rotation.value);
         
         return Transform.rotate(
-          angle: rotation.value, 
-          child: _Rectangle());
+          angle: myRotation.value, 
+          child: Opacity(
+            opacity: myOpacity.value,
+            child: childRectangle
+            )
+          );
       },
     );
 
