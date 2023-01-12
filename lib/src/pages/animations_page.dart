@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as Math;
 
 import 'package:flutter/material.dart';
 
@@ -34,8 +34,18 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
       duration: Duration(milliseconds: 4000)
       );
 
-      rotation = Tween(begin: 0.0, end: 2.0).animate(controller);
+      rotation = Tween(begin: 0.0, end: 2 * Math.pi).animate(controller);
 
+      controller.addListener(() {
+
+        print('Status ${controller.status}' );
+        if (controller.status == AnimationStatus.completed){
+          controller.reverse();
+        } 
+
+       });
+
+    controller.forward();
     super.initState();
   }
 
