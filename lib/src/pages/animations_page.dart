@@ -39,7 +39,9 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
         CurvedAnimation(parent: myController, curve: Curves.easeOut)
       );
 
-      myOpacity = Tween( begin: 0.1, end: 1.0).animate(myController);
+      myOpacity = Tween( begin: 0.1, end: 1.0).animate(
+        CurvedAnimation(parent: myController, curve: Interval(0, 0.25, curve: Curves.easeOut))
+      );
 
       myController.addListener(() {
 
