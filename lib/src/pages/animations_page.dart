@@ -25,7 +25,10 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
 
   late AnimationController myController; 
   late Animation<double> myRotation;
+
   late Animation<double> myOpacity;
+  late Animation<double> myOpacityOut;
+
   late Animation<double> moveToTheRight;
   late Animation<double> enlarge;
 
@@ -45,6 +48,10 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
         CurvedAnimation(parent: myController, curve: Interval(0, 0.25, curve: Curves.easeOut))
       );
 
+      myOpacityOut = Tween( begin: 0.1, end: 1.0).animate(
+        CurvedAnimation(parent: myController, curve: Interval(0.75, 1.0, curve: Curves.easeOut))
+      );
+
       moveToTheRight = Tween(begin: 0.0, end: 200.0).animate(
         CurvedAnimation(parent: myController, curve: Curves.easeOut)
       );
@@ -55,7 +62,7 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
 
       myController.addListener(() {
 
-        print('Status ${myController.status}' );
+        //print('Status ${myController.status}' );
         if (myController.status == AnimationStatus.completed){
           //myController.repeat();
           //controller.reverse();
@@ -87,13 +94,16 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
       builder: (BuildContext context, Widget? childRectangle) {
 
         // print(rotation.value);
+        // print('Status ${myController.status}' );
+        // print('Opacity: ${myOpacity.value}' );
+        // print('Rotation: ${myRotation.value}' );
         
         return Transform.translate(
           offset: Offset(moveToTheRight.value,0),
           child: Transform.rotate(
             angle: myRotation.value, 
             child: Opacity(
-              opacity: myOpacity.value,
+              opacity: myOpacity.value - myOpacityOut.value,
               child: Transform.scale(
                 scale: enlarge.value,
                 child: childRectangle
