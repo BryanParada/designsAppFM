@@ -1,6 +1,7 @@
 
-import 'package:designs_backgrounds/src/pages/animations_page.dart';
-import 'package:designs_backgrounds/src/pages/headers_page.dart';
+import 'package:designs_backgrounds/src/challenge/animated_square_page.dart';
+//import 'package:designs_backgrounds/src/pages/animations_page.dart';
+//import 'package:designs_backgrounds/src/pages/headers_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Designs App',
-      home: AnimationsPage()
+      home: SquareAnimatedPage()
     );
   }
 }
