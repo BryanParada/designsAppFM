@@ -26,6 +26,7 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
   late AnimationController myController; 
   late Animation<double> myRotation;
   late Animation<double> myOpacity;
+  late Animation<double> moveToTheRight;
 
   @override
   void initState() { 
@@ -41,6 +42,10 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
 
       myOpacity = Tween( begin: 0.1, end: 1.0).animate(
         CurvedAnimation(parent: myController, curve: Interval(0, 0.25, curve: Curves.easeOut))
+      );
+
+      moveToTheRight = Tween(begin: 0.0, end: 200.0).animate(
+        CurvedAnimation(parent: myController, curve: Curves.easeOut)
       );
 
       myController.addListener(() {
@@ -77,13 +82,16 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
 
         // print(rotation.value);
         
-        return Transform.rotate(
-          angle: myRotation.value, 
-          child: Opacity(
-            opacity: myOpacity.value,
-            child: childRectangle
-            )
-          );
+        return Transform.translate(
+          offset: Offset(moveToTheRight.value,0),
+          child: Transform.rotate(
+            angle: myRotation.value, 
+            child: Opacity(
+              opacity: myOpacity.value,
+              child: childRectangle
+              )
+            ),
+        );
       },
     );
 
