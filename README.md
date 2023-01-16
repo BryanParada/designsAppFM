@@ -17,7 +17,40 @@ A simple app made in Flutter to show variours designs.
 
 </div>
  
+ ---
+ <div class="row">  
+  <img src="https://user-images.githubusercontent.com/51382458/212757859-0072aa54-afcc-47cd-a7ea-531de8e17d10.png" width="300" />  
+   <img src="https://user-images.githubusercontent.com/51382458/212757872-4ff0198b-99f9-45a5-8358-3c567dc8551d.png" width="300" />    
+ </div>
+ 
+## Features  
+Check intermediate Designs in Flutter
 
+## What did i use in this app? 
+
+- animations
+- Curves
+- AnimationController
+- animation state
+- repetitions
+- tweens
+- Cleaning up animation controllers
+- Simultaneous animations on the same widget
+- transformations
+- rotations
+- Opacity
+- Motion
+---
+
+
+- custom painter
+- arc drawing
+- drawing circles
+- Animate custom painters
+- Create a circular progress widget
+- Decoration of the tips of the custom painter
+- Draw on other painters
+- Transformation into a reusable widget
 
 ## Getting Started
 
