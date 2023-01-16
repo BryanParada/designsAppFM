@@ -32,8 +32,8 @@ class _GraphCircularPageState extends State<GraphCircularPage> {
           child: Container(
             width: 300,
             height: 300,
-            color: Colors.red,
-            child: RadialProgress( percentage: 40.0 )
+            //color: Colors.red,
+            child: RadialProgress( percentage: percentage )
         // child: Text('${percentage}', style: TextStyle(fontSize: 50.0))),
           ),
         // child: CircularProgress(50, Color, ),
