@@ -27,6 +27,7 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
   late Animation<double> myRotation;
   late Animation<double> myOpacity;
   late Animation<double> moveToTheRight;
+  late Animation<double> enlarge;
 
   @override
   void initState() { 
@@ -48,10 +49,15 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
         CurvedAnimation(parent: myController, curve: Curves.easeOut)
       );
 
+      enlarge = Tween(begin: 0.0, end: 2.0).animate(
+        CurvedAnimation(parent: myController, curve: Curves.easeOut)
+      );
+
       myController.addListener(() {
 
         print('Status ${myController.status}' );
         if (myController.status == AnimationStatus.completed){
+          //myController.repeat();
           //controller.reverse();
           myController.reset();
         } 
@@ -88,7 +94,10 @@ class _SquareAnimatedState extends State<SquareAnimated> with SingleTickerProvid
             angle: myRotation.value, 
             child: Opacity(
               opacity: myOpacity.value,
-              child: childRectangle
+              child: Transform.scale(
+                scale: enlarge.value,
+                child: childRectangle
+                )
               )
             ),
         );
