@@ -5,8 +5,18 @@ import 'package:flutter/material.dart';
 class RadialProgress extends StatefulWidget {
 
 final percentage;
+final Color primaryColor;
+final Color secondaryColor;
+final double strokePrimary;
+final double strokeSecondary;
 
-  const RadialProgress({this.percentage});
+  const RadialProgress({
+    required this.percentage,
+    this.primaryColor = Colors.blue,
+    this.secondaryColor = Colors.blue,
+    this.strokeSecondary = 4,
+    this.strokePrimary = 2
+    });
 
 
    @override
@@ -50,7 +60,11 @@ class _RadialProgressState extends State<RadialProgress> with SingleTickerProvid
               width: double.infinity,
               height: double.infinity,
               child: CustomPaint(
-                painter: _MyRadialProgress( (widget.percentage - differenceAnimate) + (differenceAnimate + controller.value)),
+                painter: _MyRadialProgress( (widget.percentage - differenceAnimate) + (differenceAnimate + controller.value),
+                widget.primaryColor,
+                widget.secondaryColor,
+                widget.strokeSecondary,
+                widget.strokePrimary),
               ),
             );
       },
@@ -64,16 +78,27 @@ class _RadialProgressState extends State<RadialProgress> with SingleTickerProvid
 class  _MyRadialProgress extends CustomPainter{
 
   final percentage;
+  final Color primaryColor;
+  final Color secondaryColor;
+  final double strokePrimary;
+  final double strokeSecondary;
 
-  _MyRadialProgress(this.percentage);
+  _MyRadialProgress(
+    this.percentage,
+     this.primaryColor,
+     this.secondaryColor,
+     this.strokeSecondary,
+     this.strokePrimary
+    
+    );
 
   @override
   void paint(Canvas canvas, Size size) { 
  
     //Circulo completado
     final paint = new Paint()
-      ..strokeWidth = 4
-      ..color       = Colors.grey
+      ..strokeWidth = strokePrimary
+      ..color       = secondaryColor//Colors.grey
       ..style       = PaintingStyle.stroke;
 
     final Offset center = new Offset( size.width * 0.5, size.height / 2);
@@ -83,8 +108,8 @@ class  _MyRadialProgress extends CustomPainter{
 
     //arco
     final paintArc = new Paint()
-      ..strokeWidth = 10
-      ..color       = Colors.pink
+      ..strokeWidth = strokeSecondary
+      ..color       = primaryColor//Colors.pink
       ..style       = PaintingStyle.stroke;
 
     //Parte que se debera ir llenando
