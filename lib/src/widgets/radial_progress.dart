@@ -110,6 +110,8 @@ class  _MyRadialProgress extends CustomPainter{
     final paintArc = new Paint()
       ..strokeWidth = strokeSecondary
       ..color       = primaryColor//Colors.pink
+      ..strokeCap   = StrokeCap.round
+      ..maskFilter  = MaskFilter.blur(BlurStyle.solid, 5)
       ..style       = PaintingStyle.stroke;
 
     //Parte que se debera ir llenando
