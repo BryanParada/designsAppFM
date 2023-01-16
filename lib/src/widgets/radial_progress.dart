@@ -13,17 +13,50 @@ final percentage;
   State<RadialProgress> createState() => _RadialProgressState();
 }
 
-class _RadialProgressState extends State<RadialProgress> {
+class _RadialProgressState extends State<RadialProgress> with SingleTickerProviderStateMixin{
+
+  late AnimationController controller;
+  late double previousPercentage;
+
+  @override
+  void initState() {
+    
+    previousPercentage = widget.percentage;
+    controller = new AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      width: double.infinity,
-      height: double.infinity,
-      child: CustomPaint(
-        painter: _MyRadialProgress( widget.percentage )
-      ),
+
+    controller.forward(from: 0.0);
+
+    final differenceAnimate = widget.percentage - previousPercentage;
+    previousPercentage = widget.percentage;
+
+    return AnimatedBuilder(
+      animation: controller,
+      // child: child,
+      builder: (BuildContext context, Widget? child) {
+        return Container(
+              padding: EdgeInsets.all(10),
+              width: double.infinity,
+              height: double.infinity,
+              child: CustomPaint(
+                painter: _MyRadialProgress( (widget.percentage - differenceAnimate) + (differenceAnimate + controller.value)),
+              ),
+            );
+      },
     );
+
+    
   }
 }
 
