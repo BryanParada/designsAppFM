@@ -14,3 +14,5 @@ class SliderModel with ChangeNotifier{
   }
 
 }
+
+
