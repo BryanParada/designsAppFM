@@ -2,10 +2,16 @@ import 'package:designs_backgrounds/src/models/slider_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-//TODO:; BORRAR
-import 'package:flutter_svg/flutter_svg.dart';
+ 
 
 class Slideshow extends StatelessWidget {
+
+  final List<Widget> slides;
+
+  const Slideshow({
+    required this.slides
+    });
+
   
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class Slideshow extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Expanded(
-                child: _Slides()
+                child: _Slides( this.slides )
                 ),
               _Dots(),
             ],
@@ -75,6 +81,10 @@ class _Dot extends StatelessWidget {
 
 
 class _Slides extends StatefulWidget {
+
+  final List<Widget> slides;
+
+  const _Slides(this.slides);
   
   @override
   State<_Slides> createState() => _SlidesState();
@@ -105,15 +115,18 @@ class _SlidesState extends State<_Slides> {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Container(
       
       child: PageView(
         controller: pageViewController,
-        children: <Widget>[
-          _Slide(svg: 'assets/svgs/slide-1.svg'),
-          _Slide(svg: 'assets/svgs/slide-2.svg'),
-          _Slide(svg: 'assets/svgs/slide-3.svg'), 
-        ],
+        // children: <Widget>[
+        //   _Slide(svg: 'assets/svgs/slide-1.svg'),
+        //   _Slide(svg: 'assets/svgs/slide-2.svg'),
+        //   _Slide(svg: 'assets/svgs/slide-3.svg'), 
+        // ],
+        children: widget.slides.map( (slide) => _Slide(slide: slide,) ).toList(),
       ),
     );
   }
@@ -121,9 +134,9 @@ class _SlidesState extends State<_Slides> {
 
 class _Slide extends StatelessWidget {
 
-final String svg;
+final Widget slide;
 
-  const _Slide({ required this.svg }) ;
+  const _Slide({ required this.slide }) ;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +144,7 @@ final String svg;
       width: double.infinity,
       height: double.infinity,
       padding: EdgeInsets.all(30),
-      child: SvgPicture.asset(svg)
+      child: slide
     );
   }
 }
