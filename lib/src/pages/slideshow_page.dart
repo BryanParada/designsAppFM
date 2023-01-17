@@ -13,6 +13,7 @@ class SlideshowPage extends StatelessWidget {
           SvgPicture.asset('assets/svgs/slide-2.svg'),
           SvgPicture.asset('assets/svgs/slide-3.svg'),
           SvgPicture.asset('assets/svgs/slide-4.svg'),
+          SvgPicture.asset('assets/svgs/slide-5.svg'),
           // Text('Hola mundo'),
           // Container(
           //   width: 200,
