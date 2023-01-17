@@ -23,6 +23,13 @@ A simple app made in Flutter to show variours designs.
    <img src="https://user-images.githubusercontent.com/51382458/212757872-4ff0198b-99f9-45a5-8358-3c567dc8551d.png" width="300" />    
  </div>
  
+  ---
+  SlideShow demo: https://youtu.be/uhMVvlUnoCk
+ <div class="row">  
+   <img src="https://user-images.githubusercontent.com/51382458/213011851-44b2d651-52c7-49f7-baeb-bd6937cdc56b.png" width="300" />   
+   <img src="https://user-images.githubusercontent.com/51382458/213011753-85ea6d23-348f-49f5-aaeb-82e710634b0f.png" width="300" />   
+ </div>
+ 
 ## Features  
 Check intermediate Designs in Flutter
 
@@ -51,6 +58,16 @@ Check intermediate Designs in Flutter
 - Decoration of the tips of the custom painter
 - Draw on other painters
 - Transformation into a reusable widget
+---
+- Pageviews
+- AnimatedContainer
+- Controller
+- listeners
+- Provider
+- Re-use the widget
+- Multiple provider instances for multiple slideshows
+- ChangeNotifierProvider
+- Personalization
 
 ## Getting Started
 
