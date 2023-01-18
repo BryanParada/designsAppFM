@@ -53,6 +53,7 @@ List<Widget> itemMap = items.map(
           Container(
             margin: EdgeInsets.only(top:200),
             child: ListView(
+              physics: BouncingScrollPhysics(),
               children: <Widget>[
                 SizedBox(height: 80,),
                 ...itemMap ///**( BigButton() )
@@ -62,16 +63,44 @@ List<Widget> itemMap = items.map(
             ),
           ),
 
-          IconHeader(
-            icon: FontAwesomeIcons.plus,
-            title: 'Medical Assistance',
-            subtitle: 'You have requested',
-            color1: Color(0xff536CF6),
-            color2: Color(0xff66A9F2),
-            ),
+          _Header(),
+
+
         ],
       )
    );
+  }
+}
+
+class _Header extends StatelessWidget { 
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+
+      children: <Widget>[
+        IconHeader(
+          icon: FontAwesomeIcons.plus,
+          title: 'Medical Assistance',
+          subtitle: 'You have requested',
+          color1: Color(0xff536CF6),
+          color2: Color(0xff66A9F2),
+          ),
+
+        Positioned(
+          right: -10,
+          top: 30,
+          child: RawMaterialButton(
+            onPressed: () {
+              
+            },
+            padding: EdgeInsets.all(15.0),
+            shape: CircleBorder(),
+            child: FaIcon( FontAwesomeIcons.ellipsisVertical, color: Colors.white,)
+            ) ),
+
+      ],
+    );
   }
 }
 
