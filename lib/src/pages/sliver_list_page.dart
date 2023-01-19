@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 
 class SliverListPage extends StatelessWidget {
@@ -42,19 +43,69 @@ class _MainScroll extends StatelessWidget {
     return CustomScrollView(
       slivers: <Widget>[
         
-        SliverAppBar(
+        // SliverAppBar(
+        //   floating: true,
+        //   backgroundColor: Colors.red,
+        //   title: Text('hola'), 
+        // ),
+
+        SliverPersistentHeader(
           floating: true,
-          backgroundColor: Colors.red,
-          title: Text('hola'), 
-        ),
+          delegate: _SliverCustomHeaderDelegate(
+            minHeight: 170,
+            maxHeight: 200,
+            child: Container(
+              alignment: Alignment.centerLeft,
+              color: Colors.white,
+              child: _Title(),
+            )
+          )
+          ),
 
         SliverList(
-          delegate: SliverChildListDelegate(items)
+          delegate: SliverChildListDelegate([
+            ...items,
+            SizedBox(height: 100,)
+            ])
           ),
 
       ],
     );
   }
+}
+
+class _SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate{
+
+  final double minHeight;
+  final double maxHeight;
+  final Widget child;
+
+  _SliverCustomHeaderDelegate({
+    required this.minHeight,
+    required this.maxHeight,
+    required this.child
+});
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) { 
+    return SizedBox.expand(child: child);
+  }
+
+  @override 
+  double get maxExtent => maxHeight;//(minHeight > maxHeight) ? minHeight : maxHeight;
+
+  @override 
+  double get minExtent => minHeight;
+
+  @override
+  bool shouldRebuild(covariant _SliverCustomHeaderDelegate oldDelegate) { 
+    return maxHeight != oldDelegate.maxHeight ||
+           minHeight != oldDelegate.minHeight ||
+           child     != oldDelegate.child;
+  }
+
+
+
 }
 
 class _Title extends StatelessWidget {
