@@ -1,4 +1,4 @@
-# designs_backgrounds
+# Intermediate designs in Flutter
 
 A simple app made in Flutter to show variours designs.
 
@@ -70,7 +70,7 @@ Check intermediate Designs in Flutter
 - Personalization
 
 
-
+  ---
 ## Pinterest Layout
  <div class="row">  
    <img src="https://user-images.githubusercontent.com/51382458/213513253-ffb1e56c-5d19-4aa0-9827-90a62f392a87.gif" width="300" />    
@@ -86,7 +86,7 @@ Check intermediate Designs in Flutter
 - positioning
 - Send functions as argument
  
-
+  ---
 ## Emergency App Design
 
  <img src="https://user-images.githubusercontent.com/51382458/213516361-74c4c131-f093-486d-99b9-43b600ffa9f1.png" width="300" />    
@@ -102,7 +102,19 @@ Check intermediate Designs in Flutter
 - Android Physics
 - Basic animations for listviews
 - Stacks
+
+  ---
+## Sliver App demo
+
+<img src="https://user-images.githubusercontent.com/51382458/213549836-9274c155-9aa2-45ed-9084-5c4e80eb6c4f.gif" width="300" />    
  
+- Slivers
+- Silver AppBar
+- SilverList
+- CustomSliver
+- SliverPersistentHeaderDelegate
+- Buttons with rounded edges in specific positions
+
  
 
 
