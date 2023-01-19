@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:designs_backgrounds/src/widgets/big_button.dart';
 import 'package:designs_backgrounds/src/widgets/header_emergency.dart';
 import 'package:flutter/material.dart';
@@ -37,13 +38,16 @@ final items = <ItemButton>[
 ];
 
 List<Widget> itemMap = items.map(
-  (item) => BigButton(
-        icon: item.icon,
-        text: item.text,
-        color1: item.color1,
-        color2: item.color2,
-        onPressed: (){ print('Hola Mundo');},
-        )
+  (item) => FadeInLeft(
+    duration: Duration(milliseconds: 500),
+    child: BigButton(
+          icon: item.icon,
+          text: item.text,
+          color1: item.color1,
+          color2: item.color2,
+          onPressed: (){ print('Hola Mundo');},
+          ),
+  )
        ).toList();
 
     return Scaffold(
