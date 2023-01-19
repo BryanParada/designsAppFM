@@ -9,7 +9,7 @@
 //import 'package:designs_backgrounds/src/pages/animate_do_page.dart';
 //import 'package:designs_backgrounds/src/pages/sliver_list_page.dart';
 // import 'package:designs_backgrounds/src/pages/animate_do_page.dart';
-import 'package:designs_backgrounds/src/pages/navigation_page.dart';
+import 'package:designs_backgrounds/src/pages/animate_do_page.dart';
 // import 'package:designs_backgrounds/src/pages/twitter_page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Designs App',
-      home: NavigationPage()
+      home: AnimatePage1()
     );
   }
 }
