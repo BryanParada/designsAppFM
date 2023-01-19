@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 
 class NavigationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      appBar: AppBar(
-        backgroundColor: Colors.pink,
-        title: Text('Notifications Page'),
-      ),
-
-      floatingActionButton: _FloatingButton(),
-
-      bottomNavigationBar: BottomNavigation(),
-
-   );
+    return ChangeNotifierProvider(
+      create: ( _ ) => new _NotificationModel(),
+      child: Scaffold(
+        
+        appBar: AppBar(
+          backgroundColor: Colors.pink,
+          title: Text('Notifications Page'),
+        ),
+    
+        floatingActionButton: _FloatingButton(),
+    
+        bottomNavigationBar: BottomNavigation(),
+    
+       ),
+    );
   }
 }
 
@@ -29,13 +33,22 @@ class _FloatingButton extends StatelessWidget {
     return FloatingActionButton(
       backgroundColor: Colors.pink,
       child: FaIcon(FontAwesomeIcons.plus) ,
-      onPressed: (){});
+      onPressed: (){
+
+        int number = Provider.of<_NotificationModel>(context, listen: false).numberNoti;
+        number ++;
+        Provider.of<_NotificationModel>(context, listen: false).numberNoti = number;
+
+      });
   }
 }
 
 class BottomNavigation extends StatelessWidget {
     @override
   Widget build(BuildContext context) {
+
+    final int notifNumber = Provider.of<_NotificationModel>(context).numberNoti;
+
     return BottomNavigationBar(
       currentIndex: 0,
       selectedItemColor: Colors.pink,
@@ -58,7 +71,7 @@ class BottomNavigation extends StatelessWidget {
                 right: 0.0,
                 // child: Icon(Icons.brightness_1, size: 8, color: Colors.redAccent)
                 child: Container(
-                  child: Text('6', style: TextStyle(color: Colors.white, fontSize: 10)),
+                  child: Text('$notifNumber', style: TextStyle(color: Colors.white, fontSize: 10)),
                   alignment: Alignment.center,
                   width: 14,
                   height: 14,
@@ -85,3 +98,16 @@ class BottomNavigation extends StatelessWidget {
   }
 }
 
+
+class _NotificationModel extends ChangeNotifier{
+
+  int _numberNoti = 0;
+
+  int get numberNoti => this._numberNoti;
+
+  set numberNoti(int value){
+    this._numberNoti = value;
+    notifyListeners();
+  }
+
+}
