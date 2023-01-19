@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:designs_backgrounds/src/pages/twitter_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,7 +20,11 @@ class AnimatePage1 extends StatelessWidget {
 
             IconButton(
               icon: FaIcon(FontAwesomeIcons.twitter),
-              onPressed: (){},
+              onPressed: (){
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => TwitterPage())
+                    );
+              },
             ),
 
             SlideInLeft(
