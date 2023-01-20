@@ -115,7 +115,25 @@ Check intermediate Designs in Flutter
 - SliverPersistentHeaderDelegate
 - Buttons with rounded edges in specific positions
 
+  ---
+## Other animations
+ <div class="row">  
+  <img src="https://user-images.githubusercontent.com/51382458/213586684-c466f996-a156-42fd-93e2-60208c205a26.gif" width="300" />  
+   <img src="https://user-images.githubusercontent.com/51382458/213586688-2aff637f-4219-40d4-93c8-b90f1129bb08.gif" width="300" />   
+   <img src="https://user-images.githubusercontent.com/51382458/213586691-8a713442-b75f-481a-b9c3-79fbf6b6498f.gif" width="300" />    
  
+ </div>
+ 
+- Animate_do Library
+- different animations
+- Navigation between pages
+- Twitter Intro
+- animate any widget
+- Button Navigation Bar item with notifications
+- provider
+- AnimateController
+- Extract controller from animation
+- repeat animations
 
 
 ## Getting Started
