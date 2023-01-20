@@ -1,5 +1,7 @@
+import 'package:designs_backgrounds/src/theme/themechanger.dart';
 import 'package:flutter/material.dart';
 import 'package:designs_backgrounds/src/pages/launcher_page.dart';
+import 'package:provider/provider.dart';
 
 //import 'package:designs_backgrounds/src/pages/animations_page.dart';
 //import 'package:designs_backgrounds/src/pages/headers_page.dart';
@@ -14,7 +16,11 @@ import 'package:designs_backgrounds/src/pages/launcher_page.dart';
 //import 'package:designs_backgrounds/src/pages/animate_do_page.dart';
 // import 'package:designs_backgrounds/src/pages/twitter_page.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(
+  ChangeNotifierProvider(
+    create: (_ ) => new ThemeChanger(),
+    child: const MyApp()
+    ));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
