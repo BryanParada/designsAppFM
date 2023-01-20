@@ -1,12 +1,15 @@
 
+import 'package:designs_backgrounds/src/theme/themechanger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 
 class SliverListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
 
       //body: _Title(),
@@ -31,12 +34,16 @@ class _ButtonNewList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    
+    final appTheme = Provider.of<ThemeChanger>(context);  
     final size = MediaQuery.of(context).size;
 
         return ButtonTheme(
       child: ElevatedButton (
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Color(0xffED6762)),
+          backgroundColor: (appTheme.darkTheme)
+                            ? MaterialStateProperty.all<Color>(appTheme.currentTheme.colorScheme.secondary)
+                            : MaterialStateProperty.all<Color>(Color(0xffED6762)),
           shape: MaterialStateProperty.all<RoundedRectangleBorder> (
             RoundedRectangleBorder(
               borderRadius: BorderRadius.only(topLeft: Radius.circular(50))
@@ -50,7 +57,7 @@ class _ButtonNewList extends StatelessWidget {
             child: Text(
               'CREATE A NEW LIST',
               style: TextStyle(
-                color: Colors.white,
+                color: appTheme.currentTheme.scaffoldBackgroundColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2
@@ -88,6 +95,9 @@ class _MainScroll extends StatelessWidget {
 
     @override
   Widget build(BuildContext context) {
+
+    final appTheme = Provider.of<ThemeChanger>(context).currentTheme;  
+
     return CustomScrollView(
       slivers: <Widget>[
         
@@ -104,7 +114,7 @@ class _MainScroll extends StatelessWidget {
             maxHeight: 200,
             child: Container(
               alignment: Alignment.centerLeft,
-              color: Colors.white,
+              color: appTheme.scaffoldBackgroundColor,
               child: _Title(),
             )
           )
@@ -159,12 +169,18 @@ class _SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate{
 class _Title extends StatelessWidget {
     @override
   Widget build(BuildContext context) {
+
+    final appTheme = Provider.of<ThemeChanger>(context);  
+
     return Column(
       children: <Widget>[
         SizedBox(height: 30,),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Text('New', style: TextStyle(color: Color(0xff532128), fontSize: 50))
+          child: Text('New', 
+          style: TextStyle(
+            color: (appTheme.darkTheme) ? Colors.grey : Color(0xff532128),
+           fontSize: 50))
         ),
 
         Stack(
@@ -177,7 +193,7 @@ class _Title extends StatelessWidget {
               child: Container(
                 width: 130,
                 height: 8,
-                color: Color(0xffF7CD05),
+                color: (appTheme.darkTheme) ? Colors.grey : Color(0xffF7CD05), 
               ),
             ),
  
@@ -226,14 +242,21 @@ class _ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeChanger>(context);  
+
+
     return Container(
-      child: Text(title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20)),
+      child: Text(title, 
+      style: TextStyle(
+        color: Colors.white,
+       fontWeight: FontWeight.bold,
+        fontSize: 20)),
       padding: EdgeInsets.all(30),
       alignment: Alignment.centerLeft,
       height: 130, 
       margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: color,
+        color: (appTheme.darkTheme) ? Colors.grey : color ,
         borderRadius: BorderRadius.circular(30)
       ),
     );
