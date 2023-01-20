@@ -1,3 +1,4 @@
+import 'package:designs_backgrounds/src/pages/launcher_tablet_page.dart';
 import 'package:designs_backgrounds/src/theme/themechanger.dart';
 import 'package:flutter/material.dart';
 import 'package:designs_backgrounds/src/pages/launcher_page.dart';
@@ -34,7 +35,22 @@ class MyApp extends StatelessWidget {
       theme: currentTheme,
       debugShowCheckedModeBanner: false,
       title: 'Designs App',
-      home: LauncherPage()
+      home: OrientationBuilder(
+        builder: (BuildContext context, Orientation orientation) {
+
+         // print('Orientation $orientation');
+
+         final screenSize = MediaQuery.of(context).size;
+
+         if ( screenSize.width > 500){ //tableta
+          return LauncherTabletPage();
+         }else{
+          return LauncherPage();
+         }
+
+ 
+        },
+      ),
     );
   }
 }

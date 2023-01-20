@@ -6,7 +6,7 @@ import 'package:designs_backgrounds/src/routes/routes.dart';
 import 'package:provider/provider.dart';
 
 
-class LauncherPage extends StatelessWidget {
+class LauncherTabletPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class LauncherPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Designs - Mobile'),
+        title: Text('Flutter Designs - Tablet'),
         backgroundColor: appTheme.colorScheme.secondary,
       ),
       drawer: _MainMenu(),
