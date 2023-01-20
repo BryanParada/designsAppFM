@@ -18,7 +18,7 @@ import 'package:provider/provider.dart';
 
 void main() => runApp(
   ChangeNotifierProvider(
-    create: (_ ) => new ThemeChanger( 3 ), //guardar en preferencias de usuario
+    create: (_ ) => new ThemeChanger( 2 ), //guardar en preferencias de usuario
     child: const MyApp()
     ));
 
