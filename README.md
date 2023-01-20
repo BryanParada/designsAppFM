@@ -135,6 +135,21 @@ Check intermediate Designs in Flutter
 - Extract controller from animation
 - repeat animations
 
+## Dark Theme
+
+Video demo:
+
+- light theme
+- Dark Theme
+- custom theme
+- ThemeChanger
+- provider
+- multiprovider
+- switches
+- Using theme properties
+- Use of theme colors
+
+
 
 ## Getting Started
 
