@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:designs_backgrounds/src/routes/routes.dart';
+
 
 class LauncherPage extends StatelessWidget {
 
@@ -20,19 +22,25 @@ class _OptionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+   
+
+
     return ListView.separated(
       physics: BouncingScrollPhysics(),
        separatorBuilder: ( context, i ) => Divider(
         color: Colors.blue
        ),
-       itemCount: 10,
+       itemCount: pageRoutes.length,
       itemBuilder: (context, i) => ListTile(
 
-        leading: FaIcon(FontAwesomeIcons.slideshare, color: Colors.blue),
-        title: Text('hola'),
+        leading: FaIcon(pageRoutes[i].icon, color: Colors.blue),
+        title: Text(pageRoutes[i].title),
         trailing: Icon(Icons.chevron_right, color: Colors.blue),
         onTap: (){
-
+          Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => pageRoutes[i].page)
+                    );
         },
 
       ) 
