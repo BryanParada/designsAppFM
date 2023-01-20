@@ -217,6 +217,10 @@ class _HeaderCurvePainter extends CustomPainter{
 
 
 class HeaderWave extends StatelessWidget {
+
+  final Color color;
+
+  const HeaderWave( this.color);
   
   @override
   Widget build(BuildContext context) {
@@ -225,20 +229,25 @@ class HeaderWave extends StatelessWidget {
       width: double.infinity,
       //color: Color(0xff615AAB),
       child: CustomPaint(
-        painter: _HeaderGradientPainter(),
+        painter: _HeaderWavePainter( this.color ), //_HeaderGradientPainter
       )
     );
   }
 }
 
 class _HeaderWavePainter extends CustomPainter{
+
+  final Color color;
+
+  _HeaderWavePainter(this.color);
+
   @override
   void paint(Canvas canvas, Size size) { 
 
     final pencil = new Paint();
 
     //Propiedades lapiz
-    pencil.color = Color(0xff615AAB);
+    pencil.color = color; // Color(0xff615AAB);
     pencil.style = PaintingStyle.fill; //fill para rellenar - stroke para dibujar
     pencil.strokeWidth = 15;
 

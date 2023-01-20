@@ -2,3 +2,4 @@
 
 colorScheme.secondary
 primaryColorLight
+scaffoldBackgroundColor
