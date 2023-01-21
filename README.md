@@ -90,7 +90,12 @@ Check intermediate Designs in Flutter
   ---
 ## Emergency App Design
 
- <img src="https://user-images.githubusercontent.com/51382458/213516361-74c4c131-f093-486d-99b9-43b600ffa9f1.png" width="300" />    
+ <div class="row">  
+   <img src="https://user-images.githubusercontent.com/51382458/213516361-74c4c131-f093-486d-99b9-43b600ffa9f1.png" width="300" />    
+   <img src="https://user-images.githubusercontent.com/51382458/213882684-118e53d0-92eb-483d-b374-6d1e962cfee6.gif" width="300" />     
+
+ </div>
+ 
 
 
   
