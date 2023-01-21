@@ -22,7 +22,17 @@ class PinterestPage extends StatelessWidget {
         body: Stack(
           children: <Widget>[
             PinterestGrid(),
-            _PinterestMenuLocation(),
+             LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints){
+                return Column(
+                  children: <Widget>[
+                    Spacer(),
+                    _PinterestMenuLocation(constraints.maxWidth),
+                    SizedBox(height: 30,)
+                  ],
+                );
+              },
+            )
           ],
         ),
        ),
@@ -30,47 +40,52 @@ class PinterestPage extends StatelessWidget {
   }
 }
 
-class _PinterestMenuLocation extends StatelessWidget { 
+class _PinterestMenuLocation extends StatelessWidget {
+  final double constraints;
+  _PinterestMenuLocation(this.constraints);
   @override
   Widget build(BuildContext context) {
-
-  double widthScreen = MediaQuery.of(context).size.width;
-  final show = Provider.of<_MenuModel>(context).show;
-  final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
-
-  if ( widthScreen > 500 ){
-    widthScreen = widthScreen - 300;
-  }
-
-    return Positioned(
-      bottom: 30,
-      child: Container(
-        //color: Colors.red, 
-        width: widthScreen,
+    // double pageWidth = MediaQuery.of(context).size.width;
+    final show = Provider.of<_MenuModel>(context).show;
+    final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
+    // if (pageWidth > 500 ) {
+    //   pageWidth = pageWidth - 300;
+    // }
+    return Container(
+        width: constraints,
         child: Row(
           children: <Widget>[
-
             Spacer(),
-            
-            PinterestMenu( 
-          show: show,
-          backgroundColor: appTheme.scaffoldBackgroundColor, //fondo menu
-          activeColor: appTheme.colorScheme.secondary, 
-          inactiveColor: Colors.blueGrey,
-          items: [
-            PinterestButton(icon: Icons.pie_chart, onPressed: (){print('Icon pie_chart');}),
-            PinterestButton(icon: Icons.search, onPressed: (){print('Icon search');}),
-            PinterestButton(icon: Icons.notifications, onPressed: (){print('Icon notifications');}),
-            PinterestButton(icon: Icons.supervised_user_circle, onPressed: (){print('Icon supervised_user_circle');}),
-          ]
-        ),
-
-         Spacer(),
-
+            PinterestMenu(
+              show: show,
+              backgroundColor: appTheme.scaffoldBackgroundColor,
+              activeColor: appTheme.colorScheme.secondary,
+              items: [
+                PinterestButton(
+                    icon: Icons.pie_chart,
+                    onPressed: () {
+                      print('piechart icon');
+                    }),
+                PinterestButton(
+                    icon: Icons.search,
+                    onPressed: () {
+                      print('search icon');
+                    }),
+                PinterestButton(
+                    icon: Icons.notifications,
+                    onPressed: () {
+                      print('notifications icon');
+                    }),
+                PinterestButton(
+                    icon: Icons.supervised_user_circle,
+                    onPressed: () {
+                      print('supervised_user_circle icon');
+                    }),
+              ],
+            ),
+            Spacer(),
           ],
-        )
-      )
-      );
+        ));
   }
 }
 
