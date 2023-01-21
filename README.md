@@ -1,9 +1,15 @@
-# Intermediate designs in Flutter
+# Professional designs in Flutter
 
-A simple app made in Flutter to show variours designs.
+App made in Flutter to showcase various professional designs and animations.
 
 ## Features  
 Check intermediate Designs in Flutter
+
+Check Video demo: https://youtu.be/pg_N7NBY9JQ
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=pg_N7NBY9JQ
+" target="_blank"><img src="http://img.youtube.com/vi/pg_N7NBY9JQ/0.jpg" 
+alt="Professional designs in Flutter" width="240" height="180" border="10" /></a>
 
  ## Backgrounds
 <div class="row"> 
@@ -141,10 +147,13 @@ Check intermediate Designs in Flutter
 - Extract controller from animation
 - repeat animations
 
+  ---
 ## Dark Theme
 
-Video demo:
+Video demo: https://youtu.be/pg_N7NBY9JQ
 
+![ezgif-4-89e54b0de2](https://user-images.githubusercontent.com/51382458/213884157-3f5a369b-d542-4890-8bc2-26b800d72137.gif)
+ 
 - light theme
 - Dark Theme
 - custom theme
@@ -155,6 +164,30 @@ Video demo:
 - Using theme properties
 - Use of theme colors
 
+  ---
+## Tablet Layout - Landscape and portrait
+
+Tablet: Horizontal
+![image](https://user-images.githubusercontent.com/51382458/213884301-8b4f2e4e-1eb9-495e-ae80-937bfdd211f4.png)
+
+Mobile: Portrait
+![image](https://user-images.githubusercontent.com/51382458/213884313-33d453a6-7ad5-439c-9a72-48ae8ccd1b73.png)
+
+Tablet: Portrait
+![image](https://user-images.githubusercontent.com/51382458/213884331-750e2dea-a7d9-4098-9828-57a15425f844.png)
+
+Mobile: Horizontal 
+![image](https://user-images.githubusercontent.com/51382458/213884340-c1882fe2-184f-4ea4-bb1c-4eb509f190c7.png)
+ 
+
+- tablet design
+- Mobile Optimizations
+- Landscape and portrait
+- Orientation detection
+- MediaQuery
+- align proportionally
+- Tweaks on every page created so far to make sure it works well
+- two column layout
 
 
 ## Getting Started
