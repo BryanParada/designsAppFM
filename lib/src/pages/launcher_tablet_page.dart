@@ -1,3 +1,4 @@
+import 'package:designs_backgrounds/src/models/layout_model.dart';
 import 'package:designs_backgrounds/src/pages/slideshow_page.dart';
 import 'package:designs_backgrounds/src/theme/themechanger.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class LauncherTabletPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final appTheme = Provider.of<ThemeChanger>(context);
+    final layoutModel = Provider.of<LayoutModel>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -30,13 +32,13 @@ class LauncherTabletPage extends StatelessWidget {
 
           //linea divisora vertical
           Container(
-            width: 5,
+            width: 1,
             height: double.infinity,
             color: (appTheme.darkTheme ) ? Colors.grey: appTheme.currentTheme.colorScheme.secondary
           ),
 
           Expanded(
-            child: SlideshowPage()
+            child: layoutModel.currentPage
             ),
 
         ],
@@ -66,9 +68,11 @@ class _OptionList extends StatelessWidget {
         title: Text(pageRoutes[i].title),
         trailing: Icon(Icons.chevron_right, color: appTheme.colorScheme.secondary),
         onTap: (){
-          Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => pageRoutes[i].page)
-                    );
+          // Navigator.push(
+          //           context, MaterialPageRoute(builder: (_) => pageRoutes[i].page)
+          //           );
+          final layoutModel = Provider.of<LayoutModel>(context, listen: false);
+          layoutModel.currentPage = pageRoutes[i].page;
         },
 
       ) 

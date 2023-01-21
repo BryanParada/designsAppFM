@@ -1,3 +1,4 @@
+import 'package:designs_backgrounds/src/models/layout_model.dart';
 import 'package:designs_backgrounds/src/pages/launcher_tablet_page.dart';
 import 'package:designs_backgrounds/src/theme/themechanger.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +19,19 @@ import 'package:provider/provider.dart';
 // import 'package:designs_backgrounds/src/pages/twitter_page.dart';
 
 void main() => runApp(
-  ChangeNotifierProvider(
-    create: (_ ) => new ThemeChanger( 2 ), //guardar en preferencias de usuario
+  MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => new ThemeChanger(2),),
+      ChangeNotifierProvider(create: (_) => new LayoutModel(),),
+    ],
     child: const MyApp()
     ));
+
+  //   void main() => runApp(
+  // ChangeNotifierProvider(
+  //   create: (_ ) => new ThemeChanger( 2 ), //guardar en preferencias de usuario
+  //   child: const MyApp()
+  //   ));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
