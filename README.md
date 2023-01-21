@@ -1,11 +1,15 @@
-# Intermediate designs in Flutter
+# Professional designs in Flutter
 
-A simple app made in Flutter to show variours designs.
+App made in Flutter to showcase various professional designs and animations.
 
 ## Features  
 Check intermediate Designs in Flutter
 
 Check Video demo: https://youtu.be/pg_N7NBY9JQ
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=pg_N7NBY9JQ
+" target="_blank"><img src="http://img.youtube.com/vi/pg_N7NBY9JQ/0.jpg" 
+alt="Professional designs in Flutter" width="240" height="180" border="10" /></a>
 
  ## Backgrounds
 <div class="row"> 
@@ -162,8 +166,19 @@ Video demo: https://youtu.be/pg_N7NBY9JQ
 
   ---
 ## Tablet Layout - Landscape and portrait
-![image](https://user-images.githubusercontent.com/51382458/213883571-bb85d993-48b8-44f1-8a01-e275ab037501.png)
-![image](https://user-images.githubusercontent.com/51382458/213883626-1e1ecf55-afa0-4b4b-8f6a-f5e7177695f6.png)
+
+Tablet: Horizontal
+![image](https://user-images.githubusercontent.com/51382458/213884301-8b4f2e4e-1eb9-495e-ae80-937bfdd211f4.png)
+
+Mobile: Portrait
+![image](https://user-images.githubusercontent.com/51382458/213884313-33d453a6-7ad5-439c-9a72-48ae8ccd1b73.png)
+
+Tablet: Portrait
+![image](https://user-images.githubusercontent.com/51382458/213884331-750e2dea-a7d9-4098-9828-57a15425f844.png)
+
+Mobile: Horizontal 
+![image](https://user-images.githubusercontent.com/51382458/213884340-c1882fe2-184f-4ea4-bb1c-4eb509f190c7.png)
+ 
 
 - tablet design
 - Mobile Optimizations
