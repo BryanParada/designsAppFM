@@ -57,6 +57,7 @@ Check intermediate Designs in Flutter
  <div class="row">  
    <img src="https://user-images.githubusercontent.com/51382458/213011851-44b2d651-52c7-49f7-baeb-bd6937cdc56b.png" width="300" />   
    <img src="https://user-images.githubusercontent.com/51382458/213011753-85ea6d23-348f-49f5-aaeb-82e710634b0f.png" width="300" />   
+   <img src="https://user-images.githubusercontent.com/51382458/213881361-092a775f-1361-40ee-9638-0acc2e44b254.gif" width="300" />     
  </div>
  
 - Pageviews
