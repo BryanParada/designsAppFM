@@ -5,6 +5,8 @@ A simple app made in Flutter to show variours designs.
 ## Features  
 Check intermediate Designs in Flutter
 
+Check Video demo: https://youtu.be/pg_N7NBY9JQ
+
  ## Backgrounds
 <div class="row"> 
    <img src="https://user-images.githubusercontent.com/51382458/211899795-45dcb652-21b8-4775-a0d8-17055a920d9c.png" width="300" />    
@@ -141,10 +143,13 @@ Check intermediate Designs in Flutter
 - Extract controller from animation
 - repeat animations
 
+  ---
 ## Dark Theme
 
-Video demo:
+Video demo: https://youtu.be/pg_N7NBY9JQ
 
+![ezgif-4-89e54b0de2](https://user-images.githubusercontent.com/51382458/213884157-3f5a369b-d542-4890-8bc2-26b800d72137.gif)
+ 
 - light theme
 - Dark Theme
 - custom theme
@@ -155,6 +160,19 @@ Video demo:
 - Using theme properties
 - Use of theme colors
 
+  ---
+## Tablet Layout - Landscape and portrait
+![image](https://user-images.githubusercontent.com/51382458/213883571-bb85d993-48b8-44f1-8a01-e275ab037501.png)
+![image](https://user-images.githubusercontent.com/51382458/213883626-1e1ecf55-afa0-4b4b-8f6a-f5e7177695f6.png)
+
+- tablet design
+- Mobile Optimizations
+- Landscape and portrait
+- Orientation detection
+- MediaQuery
+- align proportionally
+- Tweaks on every page created so far to make sure it works well
+- two column layout
 
 
 ## Getting Started
